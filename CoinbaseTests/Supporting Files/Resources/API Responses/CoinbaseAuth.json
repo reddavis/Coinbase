@@ -1,0 +1,1 @@
+{"access_token":"aaa","token_type":"bearer","expires_in":7200,"refresh_token":"bbb","scope":"wallet:accounts:read wallet:addresses:read wallet:addresses:create wallet:transactions:read wallet:payment-methods:read wallet:user:read wallet:user:update wallet:user:email"}

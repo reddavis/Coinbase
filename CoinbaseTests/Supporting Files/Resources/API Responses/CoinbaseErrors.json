@@ -1,0 +1,68 @@
+{
+"errors": [
+{
+"id": "two_factor_required",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "param_required",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "validation_error",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "invalid_request",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "personal_details_required",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "identity_verification_required",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "jumio_verification_required",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "jumio_face_match_verification_required",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "unverified_email",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "authentication_error",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "invalid_token",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "revoked_token",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "expired_token",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "invalid_scope",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "rate_limit_exceeded",
+"message": "Please enter a valid email or bitcoin address"
+},
+{
+"id": "internal_server_error",
+"message": "Please enter a valid email or bitcoin address"
+}
+]
+}

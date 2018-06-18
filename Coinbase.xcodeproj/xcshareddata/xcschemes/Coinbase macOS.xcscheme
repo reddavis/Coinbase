@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A418E56E20D6A761005C30D9"
-               BuildableName = "Coinbase_macOS.framework"
+               BuildableName = "Coinbase.framework"
                BlueprintName = "Coinbase macOS"
                ReferencedContainer = "container:Coinbase.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A418E56E20D6A761005C30D9"
-            BuildableName = "Coinbase_macOS.framework"
+            BuildableName = "Coinbase.framework"
             BlueprintName = "Coinbase macOS"
             ReferencedContainer = "container:Coinbase.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A418E56E20D6A761005C30D9"
-            BuildableName = "Coinbase_macOS.framework"
+            BuildableName = "Coinbase.framework"
             BlueprintName = "Coinbase macOS"
             ReferencedContainer = "container:Coinbase.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A418E56E20D6A761005C30D9"
-            BuildableName = "Coinbase_macOS.framework"
+            BuildableName = "Coinbase.framework"
             BlueprintName = "Coinbase macOS"
             ReferencedContainer = "container:Coinbase.xcodeproj">
          </BuildableReference>

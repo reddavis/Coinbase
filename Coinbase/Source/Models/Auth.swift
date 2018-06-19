@@ -42,6 +42,25 @@ public extension CoinbaseAPIClient
     }
 }
 
+// MARK: Encodable
+
+extension CoinbaseAPIClient.Auth
+{
+    public func encode(to encoder: Encoder) throws
+    {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.accessToken, forKey: .accessToken)
+        try container.encode(self.refreshToken, forKey: .refreshToken)
+        try container.encode(self.createdAt, forKey: .createdAt)
+        
+        let expiresInSeconds = self.expiresAt.timeIntervalSince(self.createdAt)
+        try container.encode(expiresInSeconds, forKey: .expiresAt)
+        
+        let scopes = self.scopes.joined(separator: " ")
+        try container.encode(scopes, forKey: .scopes)
+    }
+}
+
 
 // MARK: Coding keys
 

@@ -44,4 +44,34 @@ internal final class AuthTests: XCTestCase
             XCTFail(error.localizedDescription)
         }
     }
+    
+    // MARK: Encoding
+    
+    internal func testEncodingDecoding()
+    {
+        do
+        {
+            var data = self.loadMockData(filename: "CoinbaseAuth.json")
+            
+            let decoder = JSONDecoder()
+            let authOne = try decoder.decode(CoinbaseAPIClient.Auth.self, from: data)
+            
+            // Encode
+            let encoder = JSONEncoder()
+            data = try encoder.encode(authOne)
+            
+            // Decode
+            let authTwo = try decoder.decode(CoinbaseAPIClient.Auth.self, from: data)
+            
+            // Asserts
+            XCTAssertEqual(authOne.expiresAt, authTwo.expiresAt)
+            XCTAssertEqual(authOne.createdAt, authTwo.createdAt)
+            XCTAssertEqual(authOne.accessToken, authTwo.accessToken)
+            XCTAssertEqual(authOne.refreshToken, authTwo.refreshToken)
+        }
+        catch
+        {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }

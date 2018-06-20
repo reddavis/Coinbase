@@ -70,6 +70,8 @@
 		A418E60220D6BBC1005C30D9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418E5A220D6A94C005C30D9 /* Network.swift */; };
 		A418E60320D6BBC1005C30D9 /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418E5A320D6A94C005C30D9 /* TransactionStatus.swift */; };
 		A418E60420D6BBC4005C30D9 /* CoinbaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418E5A420D6A94C005C30D9 /* CoinbaseAPIClient.swift */; };
+		A4D9658A20DA85EF009DC45C /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9658920DA85EF009DC45C /* SendMoney.swift */; };
+		A4D9658B20DA85EF009DC45C /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9658920DA85EF009DC45C /* SendMoney.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,7 @@
 		A418E5E120D6B6FF005C30D9 /* CoinbaseAuth.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CoinbaseAuth.json; sourceTree = "<group>"; };
 		A418E5E820D6BBB0005C30D9 /* Coinbase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coinbase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A418E5EB20D6BBB0005C30D9 /* iOS Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS Info.plist"; sourceTree = "<group>"; };
+		A4D9658920DA85EF009DC45C /* SendMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoney.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +281,7 @@
 				A418E5A120D6A94C005C30D9 /* UserEdits.swift */,
 				A418E5A220D6A94C005C30D9 /* Network.swift */,
 				A418E5A320D6A94C005C30D9 /* TransactionStatus.swift */,
+				A4D9658920DA85EF009DC45C /* SendMoney.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -489,6 +493,7 @@
 				A418E5AB20D6A94C005C30D9 /* PaginationResponse.swift in Sources */,
 				A418E5B720D6A94C005C30D9 /* Network.swift in Sources */,
 				A418E5A520D6A94C005C30D9 /* CurrencyType.swift in Sources */,
+				A4D9658A20DA85EF009DC45C /* SendMoney.swift in Sources */,
 				A418E5AA20D6A94C005C30D9 /* Auth.swift in Sources */,
 				A418E5B020D6A94C005C30D9 /* CoinbaseAuthStoreProtocol.swift in Sources */,
 				A418E5B520D6A94C005C30D9 /* APIError.swift in Sources */,
@@ -533,6 +538,7 @@
 				A418E5F820D6BBC1005C30D9 /* AccountType.swift in Sources */,
 				A418E5F720D6BBC1005C30D9 /* ErrorResponse.swift in Sources */,
 				A418E60320D6BBC1005C30D9 /* TransactionStatus.swift in Sources */,
+				A4D9658B20DA85EF009DC45C /* SendMoney.swift in Sources */,
 				A418E5FD20D6BBC1005C30D9 /* Currency.swift in Sources */,
 				A418E60120D6BBC1005C30D9 /* UserEdits.swift in Sources */,
 				A418E5FB20D6BBC1005C30D9 /* CoinbaseAuthStoreProtocol.swift in Sources */,

@@ -123,13 +123,17 @@ public extension CoinbaseAPIClient
         
         // Scopes
         let scopeValues = scopes.map { (scope) -> String in
-            return scope.rawValue
+            return scope.value()
         }.joined(separator: ",")
         
-        let scopeComponenItem = URLQueryItem(name: "scope", value: scopeValues)
+        let scopeComponentItem = URLQueryItem(name: "scope", value: scopeValues)
+        
+        let metadataComponentItems = scopes.reduce(into: [URLQueryItem]()) { (result, scope) in
+            result.append(contentsOf: scope.metadata())
+        }
         
         // Set query items
-        urlComponents.queryItems = [responseTypeItem, clientIDItem, scopeComponenItem, allAccountsItem]
+        urlComponents.queryItems = [responseTypeItem, clientIDItem, scopeComponentItem, allAccountsItem] + metadataComponentItems
         
         return urlComponents.url!
     }

@@ -370,6 +370,8 @@ public extension CoinbaseAPIClient
             do
             {
                 let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
                 let response = try decoder.decode(SingularResponse<Transaction>.self, from: unwrappedData)
                 completionHandler(response.object, nil)
             }

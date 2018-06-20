@@ -324,6 +324,62 @@ public extension CoinbaseAPIClient
             }
         }
     }
+    
+    public func send(money: SendMoney, from account: String, twoFactorCode: String?, completionHandler: @escaping (_ transaction: Transaction?, _ errors: [Error]?) -> Void)
+    {
+        if self.isRefreshingToken
+        {
+            self.queueRequest(self.send(money: money, from: account, twoFactorCode: twoFactorCode, completionHandler: completionHandler))
+            return
+        }
+        
+        let baseURL = self.baseURL.appendingPathComponent("/v2/accounts/\(account)/transactions")
+        
+        var request = URLRequest(url: baseURL)
+        request.httpMethod = "POST"
+        
+        // Body
+        do
+        {
+            let encoder = JSONEncoder()
+            request.httpBody = try encoder.encode(money)
+        }
+        catch
+        {
+            completionHandler(nil, [error])
+            return
+        }
+        
+        // Headers
+        var headers = self.defaultHeaders
+        if let unwrappedTwoFactorCode = twoFactorCode
+        {
+            headers["CB-2FA-TOKEN"] = unwrappedTwoFactorCode
+        }
+        
+        request.allHTTPHeaderFields = headers
+        
+        // Send request
+        self.perform(request: request) { [weak self] (json, data, response, error) in
+            guard let unwrappedData = data else
+            {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do
+            {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(SingularResponse<Transaction>.self, from: unwrappedData)
+                completionHandler(response.object, nil)
+            }
+            catch
+            {
+                let errors = self?.buildErrors(data: data)
+                completionHandler(nil, errors)
+            }
+        }
+    }
 }
 
 // MARK: User

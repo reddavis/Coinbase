@@ -26,7 +26,10 @@ public final class CoinbaseAPIClient
     private let authBaseURL = URL(string: "https://coinbase.com")!
     
     private var defaultHeaders: [String : String] {
-        var headers = ["Content-Type" : "application/json"]
+        var headers = [
+            "Content-Type" : "application/json",
+            "CB-VERSION" : "2018-05-22"
+        ]
         
         if let auth = self.authStore.auth
         {

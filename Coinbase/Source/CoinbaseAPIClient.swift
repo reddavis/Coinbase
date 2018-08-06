@@ -9,12 +9,20 @@
 import Foundation
 
 
+public protocol CoinbaseAPIClientDelegate: class
+{
+    func didFailToRefreshAuthToken(in client: CoinbaseAPIClient, with error: Error)
+}
+
+
 public final class CoinbaseAPIClient
 {
     // Public
     public var isAuthenticated: Bool {
         return self.authStore.isAuthenticated
     }
+    
+    public weak var delegate: CoinbaseAPIClientDelegate?
     
     // Private
     private let clientID: String
@@ -60,8 +68,15 @@ public final class CoinbaseAPIClient
         {
             self.queueRequest(self.perform(request: request, completionHandler: completionHandler))
             
-            self.refreshToken { (success, error) in
+            self.refreshToken { [weak self] (success, error) in
+                guard let weakSelf = self,
+                      !success else
+                {
+                    return
+                }
                 
+                let refreshError = error ?? CoinbaseAPIClient.APIError.unknown
+                self?.delegate?.didFailToRefreshAuthToken(in: weakSelf, with: refreshError)
             }
             
             return
@@ -103,6 +118,19 @@ private extension CoinbaseAPIClient
         }
         
         return response.errors
+    }
+    
+    private func buildAuthError(data: Data?) -> APIAuthError
+    {
+        let decoder = JSONDecoder()
+        
+        guard let unwrappedData = data,
+              let error = try? decoder.decode(APIAuthError.self, from: unwrappedData) else
+        {
+            return APIAuthError.unknown
+        }
+        
+        return error
     }
 }
 
@@ -158,6 +186,7 @@ public extension CoinbaseAPIClient
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.allHTTPHeaderFields = self.defaultHeaders
         
         self.isRefreshingToken = true
         
@@ -185,7 +214,7 @@ public extension CoinbaseAPIClient
         }
     }
     
-    private func refreshToken(_ completionHandler: @escaping (_ success: Bool, _ errors: [Error]?) -> Void)
+    private func refreshToken(_ completionHandler: @escaping (_ success: Bool, _ error: Error?) -> Void)
     {
         guard let auth = self.authStore.auth else
         {
@@ -209,6 +238,7 @@ public extension CoinbaseAPIClient
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.allHTTPHeaderFields = self.defaultHeaders
         
         self.perform(request: request) { [weak self] (json, data, response, error) in
             guard let unwrappedData = data,
@@ -237,8 +267,8 @@ public extension CoinbaseAPIClient
             }
             catch
             {
-                let errors = self?.buildErrors(data: data)
-                completionHandler(false, errors)
+                let error = self?.buildAuthError(data: data)
+                completionHandler(false, error)
             }
         }
     }

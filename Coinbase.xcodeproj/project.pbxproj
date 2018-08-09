@@ -80,6 +80,10 @@
 		A450E07B2119EBA300876815 /* PaymentMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E0792119EBA300876815 /* PaymentMethodType.swift */; };
 		A450E07D2119F93D00876815 /* CoinbaseFetchPaymentMethods.json in Resources */ = {isa = PBXBuildFile; fileRef = A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */; };
 		A450E07F2119F9D600876815 /* PaymentMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E07E2119F9D600876815 /* PaymentMethodTests.swift */; };
+		A479ED0F211C86A700134DA8 /* BuyOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479ED0E211C86A700134DA8 /* BuyOrder.swift */; };
+		A479ED10211C86A700134DA8 /* BuyOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479ED0E211C86A700134DA8 /* BuyOrder.swift */; };
+		A479ED12211C913D00134DA8 /* Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479ED11211C913D00134DA8 /* Buy.swift */; };
+		A479ED13211C913D00134DA8 /* Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479ED11211C913D00134DA8 /* Buy.swift */; };
 		A4D9658A20DA85EF009DC45C /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9658920DA85EF009DC45C /* SendMoney.swift */; };
 		A4D9658B20DA85EF009DC45C /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9658920DA85EF009DC45C /* SendMoney.swift */; };
 /* End PBXBuildFile section */
@@ -149,6 +153,8 @@
 		A450E0792119EBA300876815 /* PaymentMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodType.swift; sourceTree = "<group>"; };
 		A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CoinbaseFetchPaymentMethods.json; sourceTree = "<group>"; };
 		A450E07E2119F9D600876815 /* PaymentMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodTests.swift; sourceTree = "<group>"; };
+		A479ED0E211C86A700134DA8 /* BuyOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyOrder.swift; sourceTree = "<group>"; };
+		A479ED11211C913D00134DA8 /* Buy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buy.swift; sourceTree = "<group>"; };
 		A4D9658920DA85EF009DC45C /* SendMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoney.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,6 +310,8 @@
 				A450DFF3211894ED00876815 /* APIAuthError.swift */,
 				A450E0762119E9BE00876815 /* PaymentMethod.swift */,
 				A450E0792119EBA300876815 /* PaymentMethodType.swift */,
+				A479ED0E211C86A700134DA8 /* BuyOrder.swift */,
+				A479ED11211C913D00134DA8 /* Buy.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,6 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A479ED12211C913D00134DA8 /* Buy.swift in Sources */,
 				A418E5B920D6A94C005C30D9 /* CoinbaseAPIClient.swift in Sources */,
 				A418E5A820D6A94C005C30D9 /* ExchangeRate.swift in Sources */,
 				A418E5B420D6A94C005C30D9 /* SingularResponse.swift in Sources */,
@@ -515,6 +524,7 @@
 				A418E5A620D6A94C005C30D9 /* Transaction.swift in Sources */,
 				A418E5AC20D6A94C005C30D9 /* ErrorResponse.swift in Sources */,
 				A450E07A2119EBA300876815 /* PaymentMethodType.swift in Sources */,
+				A479ED0F211C86A700134DA8 /* BuyOrder.swift in Sources */,
 				A418E5A720D6A94C005C30D9 /* User.swift in Sources */,
 				A418E5AD20D6A94C005C30D9 /* AccountType.swift in Sources */,
 				A418E5AB20D6A94C005C30D9 /* PaginationResponse.swift in Sources */,
@@ -551,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A479ED13211C913D00134DA8 /* Buy.swift in Sources */,
 				A418E60420D6BBC4005C30D9 /* CoinbaseAPIClient.swift in Sources */,
 				A418E5F420D6BBC1005C30D9 /* Account.swift in Sources */,
 				A418E5FE20D6BBC1005C30D9 /* TransactionType.swift in Sources */,
@@ -565,6 +576,7 @@
 				A418E5FA20D6BBC1005C30D9 /* Amount.swift in Sources */,
 				A418E5F220D6BBC1005C30D9 /* User.swift in Sources */,
 				A450E07B2119EBA300876815 /* PaymentMethodType.swift in Sources */,
+				A479ED10211C86A700134DA8 /* BuyOrder.swift in Sources */,
 				A418E60220D6BBC1005C30D9 /* Network.swift in Sources */,
 				A418E5F520D6BBC1005C30D9 /* Auth.swift in Sources */,
 				A418E5F820D6BBC1005C30D9 /* AccountType.swift in Sources */,

@@ -617,3 +617,44 @@ public extension CoinbaseAPIClient
         }
     }
 }
+
+// MARK: Buy
+
+public extension CoinbaseAPIClient
+{
+    public func place(order: BuyOrder, for account: String, completionHandler: @escaping (_ errors: [Error]?) -> Void)
+    {
+        if self.isRefreshingToken
+        {
+            self.queueRequest(self.place(order: order, completionHandler: completionHandler))
+            return
+        }
+        
+        let baseURL = self.baseURL.appendingPathComponent("/v2/accounts/\(account)/buys")
+        
+        var request = URLRequest(url: baseURL)
+        request.allHTTPHeaderFields = self.defaultHeaders
+        
+        self.perform(request: request) { [weak self] (json, data, response, error) in
+            guard let unwrappedData = data else
+            {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do
+            {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let response = try decoder.decode(SingularResponse<Buy>.self, from: unwrappedData)
+                completionHandler(response.objects, nil)
+            }
+            catch
+            {
+                let errors = self?.buildErrors(data: data)
+                completionHandler(nil, errors)
+            }
+        }
+    }
+}

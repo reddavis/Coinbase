@@ -21,6 +21,13 @@ public extension CoinbaseAPIClient
         public var agreeBTCAmountVaries: Bool?
         public var commit: Bool?
         public var quote: Bool?
+        
+        // MARK: Initialization
+        
+        public init()
+        {
+            
+        }
     }
 }
 

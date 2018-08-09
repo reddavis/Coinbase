@@ -1,0 +1,55 @@
+{
+    "id": "00e2c0d1-5c79-59bb-bdfd-3cedc14a5ac4",
+    "status": "created",
+    "payment_method": {
+        "id": "cd6c79a2-5936-59c3-b646-65dfe51fa610",
+        "resource": "payment_method",
+        "resource_path": "/v2/payment-methods/cd6c79a2-5936-59c3-b646-65dfe51fa610"
+    },
+    "transaction": {
+        "id": "fe32fd5d-9d74-58c7-bb30-16e7265724c6",
+        "resource": "transaction",
+        "resource_path": "/v2/accounts/16d0c92d-ce0c-59b3-bb8f-7ecf048562b1/transactions/fe32fd5d-9d74-58c7-bb30-16e7265724c6"
+    },
+    "user_reference": "8B8VN5AS",
+    "created_at": "2018-08-09T18:10:07Z",
+    "updated_at": "2018-08-09T18:10:08Z",
+    "resource": "buy",
+    "resource_path": "/v2/accounts/16d0c92d-ce0c-59b3-bb8f-7ecf048562b1/buys/00e2c0d1-5c79-59bb-bdfd-3cedc14a5ac4",
+    "committed": true,
+    "payout_at": "2018-08-09T18:10:06Z",
+    "instant": true,
+    "fee": {
+        "amount": "0.30",
+        "currency": "GBP"
+    },
+    "amount": {
+        "amount": "0.00197000",
+        "currency": "BTC"
+    },
+    "total": {
+        "amount": "10.32",
+        "currency": "GBP"
+    },
+    "subtotal": {
+        "amount": "10.02",
+        "currency": "GBP"
+    },
+    "hold_until": null,
+    "hold_days": 0,
+    "is_first_buy": false,
+    "requires_completion_step": true,
+    "secure3d_verification": {
+        "url": "https://secure5.arcot.com/acspage/cap?RID=bbbb",
+        "payload": [
+                    {
+                    "name": "PaReq",
+                    "value": "aaa"
+                    },
+                    {
+                    "name": "TermUrl",
+                    "value": "https://www.coinbase.com/buy/secure3d_redirect"
+                    }
+                    ]
+    }
+}

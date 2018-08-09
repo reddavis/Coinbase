@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A407847A211CB6A4001A1A27 /* BuyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4078479211CB6A4001A1A27 /* BuyTests.swift */; };
+		A407847C211CB721001A1A27 /* BuyQuote.json in Resources */ = {isa = PBXBuildFile; fileRef = A407847B211CB721001A1A27 /* BuyQuote.json */; };
+		A407847E211CB902001A1A27 /* BuyNonCommit.json in Resources */ = {isa = PBXBuildFile; fileRef = A407847D211CB902001A1A27 /* BuyNonCommit.json */; };
+		A4078480211CBA62001A1A27 /* BuyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A407847F211CBA62001A1A27 /* BuyStatus.swift */; };
+		A4078481211CBA62001A1A27 /* BuyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A407847F211CBA62001A1A27 /* BuyStatus.swift */; };
+		A4078483211CCBA1001A1A27 /* Secure3DVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4078482211CCBA1001A1A27 /* Secure3DVerification.swift */; };
+		A4078484211CCBA1001A1A27 /* Secure3DVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4078482211CCBA1001A1A27 /* Secure3DVerification.swift */; };
+		A4078486211CCD1D001A1A27 /* BuyVerificationRequired.json in Resources */ = {isa = PBXBuildFile; fileRef = A4078485211CCD1D001A1A27 /* BuyVerificationRequired.json */; };
 		A418E57920D6A761005C30D9 /* Coinbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A418E56F20D6A761005C30D9 /* Coinbase.framework */; };
 		A418E58020D6A761005C30D9 /* Coinbase.h in Headers */ = {isa = PBXBuildFile; fileRef = A418E57220D6A761005C30D9 /* Coinbase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A418E5A520D6A94C005C30D9 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418E59020D6A94C005C30D9 /* CurrencyType.swift */; };
@@ -99,6 +107,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4078479211CB6A4001A1A27 /* BuyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTests.swift; sourceTree = "<group>"; };
+		A407847B211CB721001A1A27 /* BuyQuote.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BuyQuote.json; sourceTree = "<group>"; };
+		A407847D211CB902001A1A27 /* BuyNonCommit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BuyNonCommit.json; sourceTree = "<group>"; };
+		A407847F211CBA62001A1A27 /* BuyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyStatus.swift; sourceTree = "<group>"; };
+		A4078482211CCBA1001A1A27 /* Secure3DVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secure3DVerification.swift; sourceTree = "<group>"; };
+		A4078485211CCD1D001A1A27 /* BuyVerificationRequired.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BuyVerificationRequired.json; sourceTree = "<group>"; };
 		A418E56F20D6A761005C30D9 /* Coinbase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coinbase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A418E57220D6A761005C30D9 /* Coinbase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coinbase.h; sourceTree = "<group>"; };
 		A418E57320D6A761005C30D9 /* macOS Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOS Info.plist"; sourceTree = "<group>"; };
@@ -279,6 +293,7 @@
 				A418E5DF20D6B6EF005C30D9 /* AuthTests.swift */,
 				A450DFF6211897F100876815 /* AuthAPIErrorTests.swift */,
 				A450E07E2119F9D600876815 /* PaymentMethodTests.swift */,
+				A4078479211CB6A4001A1A27 /* BuyTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -312,6 +327,8 @@
 				A450E0792119EBA300876815 /* PaymentMethodType.swift */,
 				A479ED0E211C86A700134DA8 /* BuyOrder.swift */,
 				A479ED11211C913D00134DA8 /* Buy.swift */,
+				A407847F211CBA62001A1A27 /* BuyStatus.swift */,
+				A4078482211CCBA1001A1A27 /* Secure3DVerification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,6 +348,9 @@
 				A418E5E120D6B6FF005C30D9 /* CoinbaseAuth.json */,
 				A450DFF82118982A00876815 /* CoinbaseAuthError.json */,
 				A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */,
+				A407847B211CB721001A1A27 /* BuyQuote.json */,
+				A407847D211CB902001A1A27 /* BuyNonCommit.json */,
+				A4078485211CCD1D001A1A27 /* BuyVerificationRequired.json */,
 			);
 			path = "API Responses";
 			sourceTree = "<group>";
@@ -483,13 +503,16 @@
 				A418E5E220D6B6FF005C30D9 /* CoinbaseAuth.json in Resources */,
 				A418E5D720D6B025005C30D9 /* CoinbaseFetchAccounts.json in Resources */,
 				A418E5D220D6B025005C30D9 /* CoinbaseUser.json in Resources */,
+				A407847C211CB721001A1A27 /* BuyQuote.json in Resources */,
 				A418E5D120D6B025005C30D9 /* CoinbaseAddress.json in Resources */,
 				A418E5D620D6B025005C30D9 /* CoinbaseErrors.json in Resources */,
 				A418E5D820D6B025005C30D9 /* CoinbaseExchangeRate.json in Resources */,
 				A450DFF92118982A00876815 /* CoinbaseAuthError.json in Resources */,
 				A418E5D420D6B025005C30D9 /* CoinbaseError.json in Resources */,
 				A418E5D520D6B025005C30D9 /* CoinbaseFetchTransactions.json in Resources */,
+				A4078486211CCD1D001A1A27 /* BuyVerificationRequired.json in Resources */,
 				A418E5D320D6B025005C30D9 /* CoinbaseTransaction.json in Resources */,
+				A407847E211CB902001A1A27 /* BuyNonCommit.json in Resources */,
 				A418E5D020D6B025005C30D9 /* CoinbaseAccount.json in Resources */,
 				A450E07D2119F93D00876815 /* CoinbaseFetchPaymentMethods.json in Resources */,
 			);
@@ -523,7 +546,9 @@
 				A418E5AE20D6A94C005C30D9 /* Address.swift in Sources */,
 				A418E5A620D6A94C005C30D9 /* Transaction.swift in Sources */,
 				A418E5AC20D6A94C005C30D9 /* ErrorResponse.swift in Sources */,
+				A4078480211CBA62001A1A27 /* BuyStatus.swift in Sources */,
 				A450E07A2119EBA300876815 /* PaymentMethodType.swift in Sources */,
+				A4078483211CCBA1001A1A27 /* Secure3DVerification.swift in Sources */,
 				A479ED0F211C86A700134DA8 /* BuyOrder.swift in Sources */,
 				A418E5A720D6A94C005C30D9 /* User.swift in Sources */,
 				A418E5AD20D6A94C005C30D9 /* AccountType.swift in Sources */,
@@ -543,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A407847A211CB6A4001A1A27 /* BuyTests.swift in Sources */,
 				A450E07F2119F9D600876815 /* PaymentMethodTests.swift in Sources */,
 				A418E5DE20D6B22A005C30D9 /* MockURLSession.swift in Sources */,
 				A418E5C220D6AFAA005C30D9 /* UserTests.swift in Sources */,
@@ -575,7 +601,9 @@
 				A418E5F020D6BBC1005C30D9 /* CurrencyType.swift in Sources */,
 				A418E5FA20D6BBC1005C30D9 /* Amount.swift in Sources */,
 				A418E5F220D6BBC1005C30D9 /* User.swift in Sources */,
+				A4078481211CBA62001A1A27 /* BuyStatus.swift in Sources */,
 				A450E07B2119EBA300876815 /* PaymentMethodType.swift in Sources */,
+				A4078484211CCBA1001A1A27 /* Secure3DVerification.swift in Sources */,
 				A479ED10211C86A700134DA8 /* BuyOrder.swift in Sources */,
 				A418E60220D6BBC1005C30D9 /* Network.swift in Sources */,
 				A418E5F520D6BBC1005C30D9 /* Auth.swift in Sources */,

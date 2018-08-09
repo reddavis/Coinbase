@@ -622,18 +622,22 @@ public extension CoinbaseAPIClient
 
 public extension CoinbaseAPIClient
 {
-    public func place(order: BuyOrder, for account: String, completionHandler: @escaping (_ errors: [Error]?) -> Void)
+    public func place(order: BuyOrder, for account: String, completionHandler: @escaping (_ buy: Buy?, _ errors: [Error]?) -> Void)
     {
         if self.isRefreshingToken
         {
-            self.queueRequest(self.place(order: order, completionHandler: completionHandler))
+            self.queueRequest(self.place(order: order, for: account, completionHandler: completionHandler))
             return
         }
         
         let baseURL = self.baseURL.appendingPathComponent("/v2/accounts/\(account)/buys")
         
         var request = URLRequest(url: baseURL)
+        request.httpMethod = "POST"
         request.allHTTPHeaderFields = self.defaultHeaders
+        
+        let encoder = JSONEncoder()
+        request.httpBody = try? encoder.encode(order)
         
         self.perform(request: request) { [weak self] (json, data, response, error) in
             guard let unwrappedData = data else
@@ -648,7 +652,7 @@ public extension CoinbaseAPIClient
                 decoder.dateDecodingStrategy = .iso8601
                 
                 let response = try decoder.decode(SingularResponse<Buy>.self, from: unwrappedData)
-                completionHandler(response.objects, nil)
+                completionHandler(response.object, nil)
             }
             catch
             {

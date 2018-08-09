@@ -1,0 +1,35 @@
+{
+    "id": null,
+    "status": "quote",
+    "payment_method": {
+        "id": "cd6c79a2-5936-59c3-b646-65dfe51fa610",
+        "resource": "payment_method",
+        "resource_path": "/v2/payment-methods/cd6c79a2-5936-59c3-b646-65dfe51fa610"
+    },
+    "transaction": null,
+    "user_reference": null,
+    "created_at": null,
+    "updated_at": null,
+    "resource": "buy",
+    "resource_path": null,
+    "fee": {
+        "amount": "0.30",
+        "currency": "GBP"
+    },
+    "amount": {
+        "amount": "0.00198000",
+        "currency": "BTC"
+    },
+    "total": {
+        "amount": "10.38",
+        "currency": "GBP"
+    },
+    "subtotal": {
+        "amount": "10.08",
+        "currency": "GBP"
+    },
+    "hold_until": null,
+    "hold_days": 0,
+    "is_first_buy": false,
+    "requires_completion_step": false
+}

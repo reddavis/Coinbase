@@ -576,3 +576,44 @@ public extension CoinbaseAPIClient
         }
     }
 }
+
+// MARK: Payment methods
+
+public extension CoinbaseAPIClient
+{
+    public func fetchPaymentMethods(_ completionHandler: @escaping (_ paymentMethods: [PaymentMethod]?, _ errors: [Error]?) -> Void)
+    {
+        if self.isRefreshingToken
+        {
+            self.queueRequest(self.fetchPaymentMethods(completionHandler))
+            return
+        }
+        
+        let baseURL = self.baseURL.appendingPathComponent("/v2/payment-methods")
+        
+        var request = URLRequest(url: baseURL)
+        request.allHTTPHeaderFields = self.defaultHeaders
+        
+        self.perform(request: request) { [weak self] (json, data, response, error) in
+            guard let unwrappedData = data else
+            {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do
+            {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let response = try decoder.decode(PaginationResponse<PaymentMethod>.self, from: unwrappedData)
+                completionHandler(response.objects, nil)
+            }
+            catch
+            {
+                let errors = self?.buildErrors(data: data)
+                completionHandler(nil, errors)
+            }
+        }
+    }
+}

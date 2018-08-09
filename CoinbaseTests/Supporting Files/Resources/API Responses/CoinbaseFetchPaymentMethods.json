@@ -1,0 +1,98 @@
+{
+"pagination": {
+"ending_before": null,
+"starting_after": null,
+"limit": 25,
+"order": "desc",
+"previous_uri": null,
+"next_uri": null
+},
+"data": [
+{
+"id": "33476f1f-201e-5dac-b89b-263e073ba4ec",
+"type": "sepa_bank_account",
+"name": "Santander (XXXX XXXX XXXX)",
+"currency": "EUR",
+"primary_buy": false,
+"primary_sell": false,
+"allow_buy": false,
+"allow_sell": false,
+"allow_deposit": false,
+"allow_withdraw": true,
+"instant_buy": false,
+"instant_sell": false,
+"created_at": "2018-07-22T11:01:35Z",
+"updated_at": "2018-07-24T10:32:04Z",
+"resource": "payment_method",
+"resource_path": "/v2/payment-methods/33476f1f-201e-5dac-b89b-263e073ba4ec",
+"verified": true
+},
+{
+"id": "cd6c79a2-5936-59c3-b646-65dfe51fa610",
+"type": "secure3d_card",
+"name": "Visa debit ********1111",
+"currency": "GBP",
+"primary_buy": false,
+"primary_sell": false,
+"allow_buy": false,
+"allow_sell": false,
+"allow_deposit": false,
+"allow_withdraw": false,
+"instant_buy": true,
+"instant_sell": false,
+"created_at": "2018-06-11T05:22:22Z",
+"updated_at": "2018-06-11T05:22:22Z",
+"resource": "payment_method",
+"resource_path": "/v2/payment-methods/cd6c79a2-5936-59c3-b646-65dfe51fa610",
+"verified": true
+},
+{
+"id": "33f9ff05-c3d0-5ca0-a628-3287c9a03b4e",
+"type": "fiat_account",
+"name": "GBP Wallet",
+"currency": "GBP",
+"primary_buy": false,
+"primary_sell": true,
+"allow_buy": false,
+"allow_sell": true,
+"allow_deposit": true,
+"allow_withdraw": false,
+"instant_buy": true,
+"instant_sell": true,
+"created_at": "2017-07-02T12:26:08Z",
+"updated_at": "2017-07-02T12:26:08Z",
+"resource": "payment_method",
+"resource_path": "/v2/payment-methods/33f9ff05-c3d0-5ca0-a628-3287c9a03b4e",
+"fiat_account": {
+"id": "cea9abbe-b8d1-56f8-84bd-e4f687e0d940",
+"resource": "account",
+"resource_path": "/v2/accounts/cea9abbe-b8d1-56f8-84bd-e4f687e0d940"
+},
+"verified": true
+},
+{
+"id": "8a011ee2-a4e3-59a6-9cfc-2a4f9bcfde7c",
+"type": "fiat_account",
+"name": "EUR Wallet",
+"currency": "EUR",
+"primary_buy": true,
+"primary_sell": false,
+"allow_buy": true,
+"allow_sell": true,
+"allow_deposit": true,
+"allow_withdraw": true,
+"instant_buy": true,
+"instant_sell": true,
+"created_at": "2017-07-02T12:26:08Z",
+"updated_at": "2017-07-02T12:26:08Z",
+"resource": "payment_method",
+"resource_path": "/v2/payment-methods/8a011ee2-a4e3-59a6-9cfc-2a4f9bcfde7c",
+"fiat_account": {
+"id": "85920f5a-3a2a-5b7d-a453-28ac91828d7d",
+"resource": "account",
+"resource_path": "/v2/accounts/85920f5a-3a2a-5b7d-a453-28ac91828d7d"
+},
+"verified": true
+}
+]
+}

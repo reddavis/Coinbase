@@ -74,6 +74,12 @@
 		A450DFF5211894ED00876815 /* APIAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450DFF3211894ED00876815 /* APIAuthError.swift */; };
 		A450DFF7211897F100876815 /* AuthAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450DFF6211897F100876815 /* AuthAPIErrorTests.swift */; };
 		A450DFF92118982A00876815 /* CoinbaseAuthError.json in Resources */ = {isa = PBXBuildFile; fileRef = A450DFF82118982A00876815 /* CoinbaseAuthError.json */; };
+		A450E0772119E9BE00876815 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E0762119E9BE00876815 /* PaymentMethod.swift */; };
+		A450E0782119E9BE00876815 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E0762119E9BE00876815 /* PaymentMethod.swift */; };
+		A450E07A2119EBA300876815 /* PaymentMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E0792119EBA300876815 /* PaymentMethodType.swift */; };
+		A450E07B2119EBA300876815 /* PaymentMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E0792119EBA300876815 /* PaymentMethodType.swift */; };
+		A450E07D2119F93D00876815 /* CoinbaseFetchPaymentMethods.json in Resources */ = {isa = PBXBuildFile; fileRef = A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */; };
+		A450E07F2119F9D600876815 /* PaymentMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E07E2119F9D600876815 /* PaymentMethodTests.swift */; };
 		A4D9658A20DA85EF009DC45C /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9658920DA85EF009DC45C /* SendMoney.swift */; };
 		A4D9658B20DA85EF009DC45C /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9658920DA85EF009DC45C /* SendMoney.swift */; };
 /* End PBXBuildFile section */
@@ -139,6 +145,10 @@
 		A450DFF3211894ED00876815 /* APIAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuthError.swift; sourceTree = "<group>"; };
 		A450DFF6211897F100876815 /* AuthAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIErrorTests.swift; sourceTree = "<group>"; };
 		A450DFF82118982A00876815 /* CoinbaseAuthError.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CoinbaseAuthError.json; sourceTree = "<group>"; };
+		A450E0762119E9BE00876815 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		A450E0792119EBA300876815 /* PaymentMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodType.swift; sourceTree = "<group>"; };
+		A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CoinbaseFetchPaymentMethods.json; sourceTree = "<group>"; };
+		A450E07E2119F9D600876815 /* PaymentMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodTests.swift; sourceTree = "<group>"; };
 		A4D9658920DA85EF009DC45C /* SendMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoney.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +272,7 @@
 				A418E5BC20D6AFAA005C30D9 /* UserTests.swift */,
 				A418E5DF20D6B6EF005C30D9 /* AuthTests.swift */,
 				A450DFF6211897F100876815 /* AuthAPIErrorTests.swift */,
+				A450E07E2119F9D600876815 /* PaymentMethodTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -291,6 +302,8 @@
 				A418E5A320D6A94C005C30D9 /* TransactionStatus.swift */,
 				A4D9658920DA85EF009DC45C /* SendMoney.swift */,
 				A450DFF3211894ED00876815 /* APIAuthError.swift */,
+				A450E0762119E9BE00876815 /* PaymentMethod.swift */,
+				A450E0792119EBA300876815 /* PaymentMethodType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +322,7 @@
 				A418E5CF20D6B025005C30D9 /* CoinbaseExchangeRate.json */,
 				A418E5E120D6B6FF005C30D9 /* CoinbaseAuth.json */,
 				A450DFF82118982A00876815 /* CoinbaseAuthError.json */,
+				A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */,
 			);
 			path = "API Responses";
 			sourceTree = "<group>";
@@ -469,6 +483,7 @@
 				A418E5D520D6B025005C30D9 /* CoinbaseFetchTransactions.json in Resources */,
 				A418E5D320D6B025005C30D9 /* CoinbaseTransaction.json in Resources */,
 				A418E5D020D6B025005C30D9 /* CoinbaseAccount.json in Resources */,
+				A450E07D2119F93D00876815 /* CoinbaseFetchPaymentMethods.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +514,7 @@
 				A418E5AE20D6A94C005C30D9 /* Address.swift in Sources */,
 				A418E5A620D6A94C005C30D9 /* Transaction.swift in Sources */,
 				A418E5AC20D6A94C005C30D9 /* ErrorResponse.swift in Sources */,
+				A450E07A2119EBA300876815 /* PaymentMethodType.swift in Sources */,
 				A418E5A720D6A94C005C30D9 /* User.swift in Sources */,
 				A418E5AD20D6A94C005C30D9 /* AccountType.swift in Sources */,
 				A418E5AB20D6A94C005C30D9 /* PaginationResponse.swift in Sources */,
@@ -507,6 +523,7 @@
 				A450DFF4211894ED00876815 /* APIAuthError.swift in Sources */,
 				A4D9658A20DA85EF009DC45C /* SendMoney.swift in Sources */,
 				A418E5AA20D6A94C005C30D9 /* Auth.swift in Sources */,
+				A450E0772119E9BE00876815 /* PaymentMethod.swift in Sources */,
 				A418E5B020D6A94C005C30D9 /* CoinbaseAuthStoreProtocol.swift in Sources */,
 				A418E5B520D6A94C005C30D9 /* APIError.swift in Sources */,
 			);
@@ -516,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A450E07F2119F9D600876815 /* PaymentMethodTests.swift in Sources */,
 				A418E5DE20D6B22A005C30D9 /* MockURLSession.swift in Sources */,
 				A418E5C220D6AFAA005C30D9 /* UserTests.swift in Sources */,
 				A418E5C120D6AFAA005C30D9 /* TransactionTests.swift in Sources */,
@@ -546,6 +564,7 @@
 				A418E5F020D6BBC1005C30D9 /* CurrencyType.swift in Sources */,
 				A418E5FA20D6BBC1005C30D9 /* Amount.swift in Sources */,
 				A418E5F220D6BBC1005C30D9 /* User.swift in Sources */,
+				A450E07B2119EBA300876815 /* PaymentMethodType.swift in Sources */,
 				A418E60220D6BBC1005C30D9 /* Network.swift in Sources */,
 				A418E5F520D6BBC1005C30D9 /* Auth.swift in Sources */,
 				A418E5F820D6BBC1005C30D9 /* AccountType.swift in Sources */,
@@ -554,6 +573,7 @@
 				A450DFF5211894ED00876815 /* APIAuthError.swift in Sources */,
 				A4D9658B20DA85EF009DC45C /* SendMoney.swift in Sources */,
 				A418E5FD20D6BBC1005C30D9 /* Currency.swift in Sources */,
+				A450E0782119E9BE00876815 /* PaymentMethod.swift in Sources */,
 				A418E60120D6BBC1005C30D9 /* UserEdits.swift in Sources */,
 				A418E5FB20D6BBC1005C30D9 /* CoinbaseAuthStoreProtocol.swift in Sources */,
 			);

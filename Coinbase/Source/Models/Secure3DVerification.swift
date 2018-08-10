@@ -31,7 +31,6 @@ public extension CoinbaseAPIClient
                 throw DecodingError.dataCorruptedError(forKey: .baseURL, in: container, debugDescription: "Invalid URL")
             }
             
-            
             urlComponents.queryItems = self.payload.compactMap({ (dictionary) -> URLQueryItem? in
                 guard let name = dictionary["name"],
                       let value = dictionary["value"] else

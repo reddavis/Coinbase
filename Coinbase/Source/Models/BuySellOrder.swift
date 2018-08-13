@@ -11,7 +11,7 @@ import Foundation
 
 public extension CoinbaseAPIClient
 {
-    public struct BuyOrder: Encodable
+    public struct BuySellOrder: Encodable
     {
         // Public
         public var amount: Double?
@@ -34,7 +34,7 @@ public extension CoinbaseAPIClient
 
 // MARK: Coding keys
 
-internal extension CoinbaseAPIClient.BuyOrder
+internal extension CoinbaseAPIClient.BuySellOrder
 {
     internal enum CodingKeys: String, CodingKey
     {

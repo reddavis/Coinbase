@@ -622,11 +622,11 @@ public extension CoinbaseAPIClient
 
 public extension CoinbaseAPIClient
 {
-    public func place(order: BuyOrder, for account: String, completionHandler: @escaping (_ buy: Buy?, _ errors: [Error]?) -> Void)
+    public func place(buyOrder: BuySellOrder, for account: String, completionHandler: @escaping (_ buy: Buy?, _ errors: [Error]?) -> Void)
     {
         if self.isRefreshingToken
         {
-            self.queueRequest(self.place(order: order, for: account, completionHandler: completionHandler))
+            self.queueRequest(self.place(buyOrder: buyOrder, for: account, completionHandler: completionHandler))
             return
         }
         
@@ -637,7 +637,7 @@ public extension CoinbaseAPIClient
         request.allHTTPHeaderFields = self.defaultHeaders
         
         let encoder = JSONEncoder()
-        request.httpBody = try? encoder.encode(order)
+        request.httpBody = try? encoder.encode(buyOrder)
         
         self.perform(request: request) { [weak self] (json, data, response, error) in
             guard let unwrappedData = data else
@@ -652,6 +652,51 @@ public extension CoinbaseAPIClient
                 decoder.dateDecodingStrategy = .iso8601
                 
                 let response = try decoder.decode(SingularResponse<Buy>.self, from: unwrappedData)
+                completionHandler(response.object, nil)
+            }
+            catch
+            {
+                let errors = self?.buildErrors(data: data)
+                completionHandler(nil, errors)
+            }
+        }
+    }
+}
+
+// MARK: Sell
+
+public extension CoinbaseAPIClient
+{
+    public func place(sellOrder: BuySellOrder, for account: String, completionHandler: @escaping (_ sell: Sell?, _ errors: [Error]?) -> Void)
+    {
+        if self.isRefreshingToken
+        {
+            self.queueRequest(self.place(sellOrder: sellOrder, for: account, completionHandler: completionHandler))
+            return
+        }
+        
+        let baseURL = self.baseURL.appendingPathComponent("/v2/accounts/\(account)/sells")
+        
+        var request = URLRequest(url: baseURL)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = self.defaultHeaders
+        
+        let encoder = JSONEncoder()
+        request.httpBody = try? encoder.encode(sellOrder)
+        
+        self.perform(request: request) { [weak self] (json, data, response, error) in
+            guard let unwrappedData = data else
+            {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do
+            {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let response = try decoder.decode(SingularResponse<Sell>.self, from: unwrappedData)
                 completionHandler(response.object, nil)
             }
             catch

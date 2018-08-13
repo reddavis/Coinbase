@@ -1,0 +1,34 @@
+{
+    "id": "707b08f3-a9b1-59b4-a30e-9a9e1f270545",
+    "status": "created",
+    "payment_method": {
+        "id": "33f9ff05-c3d0-5ca0-a628-3287c9a03b4e",
+        "resource": "payment_method",
+        "resource_path": "/v2/payment-methods/33f9ff05-c3d0-5ca0-a628-3287c9a03b4e"
+    },
+    "transaction": null,
+    "user_reference": "LVFHNLP7",
+    "created_at": "2018-08-13T15:01:27Z",
+    "updated_at": "2018-08-13T15:01:27Z",
+    "resource": "sell",
+    "resource_path": "/v2/accounts/5cfe8d30-b011-58d2-8a06-8970151cbf98/sells/707b08f3-a9b1-59b4-a30e-9a9e1f270545",
+    "committed": false,
+    "payout_at": "2018-08-13T15:01:27Z",
+    "instant": true,
+    "fee": {
+        "amount": "0.99",
+        "currency": "GBP"
+    },
+    "amount": {
+        "amount": "0.00222839",
+        "currency": "BCH"
+    },
+    "total": {
+        "amount": "0.01",
+        "currency": "GBP"
+    },
+    "subtotal": {
+        "amount": "1.00",
+        "currency": "GBP"
+    }
+}

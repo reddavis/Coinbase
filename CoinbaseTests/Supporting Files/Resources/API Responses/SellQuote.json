@@ -1,0 +1,31 @@
+{
+    "id": null,
+    "status": "quote",
+    "payment_method": {
+        "id": "33f9ff05-c3d0-5ca0-a628-3287c9a03b4e",
+        "resource": "payment_method",
+        "resource_path": "/v2/payment-methods/33f9ff05-c3d0-5ca0-a628-3287c9a03b4e"
+    },
+    "transaction": null,
+    "user_reference": null,
+    "created_at": null,
+    "updated_at": null,
+    "resource": "sell",
+    "resource_path": null,
+    "fee": {
+        "amount": "0.99",
+        "currency": "GBP"
+    },
+    "amount": {
+        "amount": "0.00405365",
+        "currency": "ETH"
+    },
+    "total": {
+        "amount": "0.01",
+        "currency": "GBP"
+    },
+    "subtotal": {
+        "amount": "1.00",
+        "currency": "GBP"
+    }    
+}

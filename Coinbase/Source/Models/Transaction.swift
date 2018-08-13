@@ -23,6 +23,8 @@ public extension CoinbaseAPIClient
         public let createdAt: Date
         public let updatedAt: Date
         public let network: Network?
+        public let buy: Resource?
+        public let sell: Resource?
     }
 }
 
@@ -42,5 +44,7 @@ internal extension CoinbaseAPIClient.Transaction
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case network
+        case buy
+        case sell
     }
 }

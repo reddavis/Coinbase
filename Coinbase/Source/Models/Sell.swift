@@ -22,6 +22,7 @@ public extension CoinbaseAPIClient
         public let payoutAt: Date?
         public let committed: Bool?
         public let isInstant: Bool?
+        public let paymentMethod: Resource?
     }
 }
 
@@ -40,5 +41,6 @@ internal extension CoinbaseAPIClient.Sell
         case payoutAt = "payout_at"
         case committed
         case isInstant = "instant"
+        case paymentMethod = "payment_method"
     }
 }

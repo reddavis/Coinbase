@@ -26,6 +26,8 @@ public extension CoinbaseAPIClient
         public let payoutAt: Date?
         public let committed: Bool?
         public let secure3DVerification: Secure3DVerification?
+        public let transaction: Resource?
+        public let paymentMethod: Resource?
     }
 }
 
@@ -48,5 +50,7 @@ internal extension CoinbaseAPIClient.Buy
         case payoutAt = "payout_at"
         case committed
         case secure3DVerification = "secure3d_verification"
+        case transaction
+        case paymentMethod = "payment_method"
     }
 }

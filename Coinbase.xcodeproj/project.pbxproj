@@ -100,6 +100,10 @@
 		A4F1C2DF2121D34700383FD4 /* SellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F1C2DE2121D34700383FD4 /* SellTests.swift */; };
 		A4F1C2E12121D51400383FD4 /* SellNonCommit.json in Resources */ = {isa = PBXBuildFile; fileRef = A4F1C2E02121D51400383FD4 /* SellNonCommit.json */; };
 		A4F1C2E32121D5D000383FD4 /* Sell.json in Resources */ = {isa = PBXBuildFile; fileRef = A4F1C2E22121D5D000383FD4 /* Sell.json */; };
+		A4F1C2E52121D8DB00383FD4 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F1C2E42121D8DB00383FD4 /* Resource.swift */; };
+		A4F1C2E62121D8DB00383FD4 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F1C2E42121D8DB00383FD4 /* Resource.swift */; };
+		A4F1C2E82121DAC500383FD4 /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F1C2E72121DAC500383FD4 /* ResourceTests.swift */; };
+		A4F1C2EA2121DAFF00383FD4 /* ResourceBuy.json in Resources */ = {isa = PBXBuildFile; fileRef = A4F1C2E92121DAFF00383FD4 /* ResourceBuy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +185,9 @@
 		A4F1C2DE2121D34700383FD4 /* SellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellTests.swift; sourceTree = "<group>"; };
 		A4F1C2E02121D51400383FD4 /* SellNonCommit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SellNonCommit.json; sourceTree = "<group>"; };
 		A4F1C2E22121D5D000383FD4 /* Sell.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Sell.json; sourceTree = "<group>"; };
+		A4F1C2E42121D8DB00383FD4 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		A4F1C2E72121DAC500383FD4 /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
+		A4F1C2E92121DAFF00383FD4 /* ResourceBuy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourceBuy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +313,7 @@
 				A450E07E2119F9D600876815 /* PaymentMethodTests.swift */,
 				A4078479211CB6A4001A1A27 /* BuyTests.swift */,
 				A4F1C2DE2121D34700383FD4 /* SellTests.swift */,
+				A4F1C2E72121DAC500383FD4 /* ResourceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 				A407847F211CBA62001A1A27 /* BuyStatus.swift */,
 				A4078482211CCBA1001A1A27 /* Secure3DVerification.swift */,
 				A487D604211DC91E00228045 /* Sell.swift */,
+				A4F1C2E42121D8DB00383FD4 /* Resource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +376,7 @@
 				A4F1C2DC2121D2FB00383FD4 /* SellQuote.json */,
 				A4F1C2E02121D51400383FD4 /* SellNonCommit.json */,
 				A4F1C2E22121D5D000383FD4 /* Sell.json */,
+				A4F1C2E92121DAFF00383FD4 /* ResourceBuy.json */,
 			);
 			path = "API Responses";
 			sourceTree = "<group>";
@@ -522,6 +532,7 @@
 				A407847C211CB721001A1A27 /* BuyQuote.json in Resources */,
 				A4F1C2DD2121D2FB00383FD4 /* SellQuote.json in Resources */,
 				A418E5D120D6B025005C30D9 /* CoinbaseAddress.json in Resources */,
+				A4F1C2EA2121DAFF00383FD4 /* ResourceBuy.json in Resources */,
 				A418E5D620D6B025005C30D9 /* CoinbaseErrors.json in Resources */,
 				A4F1C2E12121D51400383FD4 /* SellNonCommit.json in Resources */,
 				A418E5D820D6B025005C30D9 /* CoinbaseExchangeRate.json in Resources */,
@@ -561,6 +572,7 @@
 				A487D605211DC91E00228045 /* Sell.swift in Sources */,
 				A418E5A920D6A94C005C30D9 /* Account.swift in Sources */,
 				A418E5B320D6A94C005C30D9 /* TransactionType.swift in Sources */,
+				A4F1C2E52121D8DB00383FD4 /* Resource.swift in Sources */,
 				A418E5B220D6A94C005C30D9 /* Currency.swift in Sources */,
 				A418E5B820D6A94C005C30D9 /* TransactionStatus.swift in Sources */,
 				A418E5AE20D6A94C005C30D9 /* Address.swift in Sources */,
@@ -589,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A407847A211CB6A4001A1A27 /* BuyTests.swift in Sources */,
+				A4F1C2E82121DAC500383FD4 /* ResourceTests.swift in Sources */,
 				A450E07F2119F9D600876815 /* PaymentMethodTests.swift in Sources */,
 				A418E5DE20D6B22A005C30D9 /* MockURLSession.swift in Sources */,
 				A418E5C220D6AFAA005C30D9 /* UserTests.swift in Sources */,
@@ -618,6 +631,7 @@
 				A487D606211DC91E00228045 /* Sell.swift in Sources */,
 				A418E5FC20D6BBC1005C30D9 /* Scope.swift in Sources */,
 				A418E5FF20D6BBC1005C30D9 /* SingularResponse.swift in Sources */,
+				A4F1C2E62121D8DB00383FD4 /* Resource.swift in Sources */,
 				A418E5F320D6BBC1005C30D9 /* ExchangeRate.swift in Sources */,
 				A418E5F120D6BBC1005C30D9 /* Transaction.swift in Sources */,
 				A418E5F020D6BBC1005C30D9 /* CurrencyType.swift in Sources */,

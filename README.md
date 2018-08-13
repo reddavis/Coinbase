@@ -93,6 +93,9 @@ public func fetchCurrentUser(_ completionHandler: @escaping (_ user: User?, _ er
 public func updateCurrentUser(edits: UserEdits, completionHandler: @escaping (_ user: User?, _ errors: [Error]?) -> Void)
 public func createAddress(accountID: String, completionHandler: @escaping (_ address: Address?, _ errors: [Error]?) -> Void)
 public func fetchExchangeRates(baseCurrencyCode: String, completionHandler: @escaping (_ exchangeRate: ExchangeRate?, _ errors: [Error]?) -> Void)
+public func fetchPaymentMethods(_ completionHandler: @escaping (_ paymentMethods: [PaymentMethod]?, _ errors: [Error]?) -> Void)
+public func place(buyOrder: BuySellOrder, for account: String, completionHandler: @escaping (_ buy: Buy?, _ errors: [Error]?) -> Void)
+public func place(sellOrder: BuySellOrder, for account: String, completionHandler: @escaping (_ sell: Sell?, _ errors: [Error]?) -> Void)
 ```
 
 ## License

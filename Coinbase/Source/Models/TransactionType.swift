@@ -23,6 +23,7 @@ public extension CoinbaseAPIClient
         case exchangeDeposit = "exchange_deposit"
         case exchangeWithdrawal = "exchange_withdrawal"
         case vaultWithdrawal = "vault_withdrawal"
+        case coinbaseProWithdrawal = "pro_withdrawal"
         case unknown
     }
 }

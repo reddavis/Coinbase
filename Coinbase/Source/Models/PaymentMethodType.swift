@@ -22,5 +22,6 @@ public extension CoinbaseAPIClient
         case secure3DCard = "secure3d_card"
         case eft = "eft_bank_account"
         case interac = "interac"
+        case ukBankAccount = "uk_bank_account"
     }
 }

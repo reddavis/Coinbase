@@ -41,4 +41,3 @@ internal final class ResourceTests: XCTestCase
         }
     }
 }
-

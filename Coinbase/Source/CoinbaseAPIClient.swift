@@ -322,23 +322,33 @@ public extension CoinbaseAPIClient
 
 public extension CoinbaseAPIClient
 {
-    public func fetchTransactions(accountID: String, completionHandler: @escaping (_ transactions: [Transaction]?, _ errors: [Error]?) -> Void)
+    public func fetchTransactions(accountID: String, pagination: Pagination?, completionHandler: @escaping (_ transactions: [Transaction]?, _ pagination: Pagination?, _ errors: [Error]?) -> Void)
     {
         if self.isRefreshingToken
         {
-            self.queueRequest(self.fetchTransactions(accountID: accountID, completionHandler: completionHandler))
+            self.queueRequest(self.fetchTransactions(accountID: accountID, pagination: pagination, completionHandler: completionHandler))
             return
         }
         
+        // Build URL
         let baseURL = self.baseURL.appendingPathComponent("v2/accounts/\(accountID)/transactions")
+        let url: URL
+        do
+        {
+            url = try pagination?.queryURL(baseURL: baseURL) ?? baseURL
+        }
+        catch
+        {
+            url = baseURL
+        }
         
-        var request = URLRequest(url: baseURL)
+        var request = URLRequest(url: url)
         request.allHTTPHeaderFields = self.defaultHeaders
         
         self.perform(request: request) { [weak self] (json, data, response, error) in
             guard let unwrappedData = data else
             {
-                completionHandler(nil, nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
@@ -348,12 +358,12 @@ public extension CoinbaseAPIClient
                 decoder.dateDecodingStrategy = .iso8601
                 
                 let paginationResponse = try decoder.decode(PaginationResponse<Transaction>.self, from: unwrappedData)
-                completionHandler(paginationResponse.objects, nil)
+                completionHandler(paginationResponse.objects, paginationResponse.pagination, nil)
             }
             catch
             {
                 let errors = self?.buildErrors(data: data)
-                completionHandler(nil, errors)
+                completionHandler(nil, nil, errors)
             }
         }
     }

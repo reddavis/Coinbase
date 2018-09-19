@@ -15,6 +15,7 @@ internal extension CoinbaseAPIClient
     {
         // Internal
         internal let objects: [T]
+        internal let pagination: Pagination
     }
 }
 
@@ -26,5 +27,6 @@ internal extension CoinbaseAPIClient.PaginationResponse
     internal enum CodingKeys: String, CodingKey
     {
         case objects = "data"
+        case pagination
     }
 }

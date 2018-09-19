@@ -495,11 +495,11 @@
 				TargetAttributes = {
 					A418E56E20D6A761005C30D9 = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = "";
 					};
 					A418E57720D6A761005C30D9 = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = "";
 					};
 					A418E5E720D6BBB0005C30D9 = {
 						CreatedOnToolsVersion = 9.4;
@@ -825,7 +825,7 @@
 				PRODUCT_NAME = Coinbase;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -852,7 +852,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reddavis.Coinbase;
 				PRODUCT_NAME = Coinbase;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -873,7 +873,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reddavis.CoinbaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -893,7 +893,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.reddavis.CoinbaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

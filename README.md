@@ -88,7 +88,7 @@ Only a few requests are currently supported, more will be added as we add featur
 
 ```
 public func fetchAccounts(_ completionHandler: @escaping (_ accounts: [Account]?, _ errors: [Error]?) -> Void)
-public func fetchTransactions(accountID: String, completionHandler: @escaping (_ transactions: [Transaction]?, _ errors: [Error]?) -> Void)
+public func fetchTransactions(accountID: String, pagination: Pagination?, completionHandler: @escaping (_ transactions: [Transaction]?, _ errors: [Error]?) -> Void)
 public func fetchCurrentUser(_ completionHandler: @escaping (_ user: User?, _ errors: [Error]?) -> Void)
 public func updateCurrentUser(edits: UserEdits, completionHandler: @escaping (_ user: User?, _ errors: [Error]?) -> Void)
 public func createAddress(accountID: String, completionHandler: @escaping (_ address: Address?, _ errors: [Error]?) -> Void)

@@ -8,9 +8,23 @@ This library is still under heavy development as it is being built alongside the
 github "reddavis/Coinbase"
 ```
 
+## Token Swap Service
+
+The library requires the use of a token swap service so that you don't need to store your application's secret key in the app. Here is a list of open sourced services you can use:
+
+- [reddavis/Coinbase-Token-Swap](https://github.com/reddavis/Coinbase-Token-Swap)
+
 ## Usage
 
 ### Initialization
+
+```
+let exchangeCodeURL = URL(string: "https://red.to.com/api/token")!
+let refreshTokenURL = URL(string: "https://red.to/api/refresh_token")!
+self.coinbaseAPIClient = CoinbaseAPIClient(clientID: "abc", exchangeCodeURL: exchangeCodeURL, refreshTokenURL: refreshTokenURL, authStore: authStore)
+```
+
+### Storing Credentials
 
 The library gives you the flexibility of how you store the oAuth credentials. You will need to implement a class that conforms to the `CoinbaseAPIClientAuthStore` protocol. `var isAuthenticated`, `var hasExpired` and `func delete()` all have default implementations, so you will only need to implement `var auth`.
 
@@ -65,7 +79,8 @@ let scopes: [CoinbaseAPIClient.Scope] = [
     .readPaymentMethods,
     .readUser,
     .updateUser,
-    .readUserEmailAddress
+    .readUserEmailAddress,
+    .createTransactions(sendLimit: 1.0, currencyCode: "USD", period: .day)
 ]
 
 let url = self.coinbaseAPIClient.authorizeURL(scopes: scopes)
@@ -75,9 +90,7 @@ NSWorkspace.shared.open(url)
 Then you need to get the oAuth token:
 
 ```
-let redirectURL = URL(string: "quids://coinbase/auth")!
-
-self.coinbaseAPIClient.authenticate(code: code, redirectURL: redirectURL) { (success, error) in
+self.coinbaseAPIClient.authenticate(code: code) { (success, error) in
     self.authCompletionHandler?(success, error)
 }
 ```

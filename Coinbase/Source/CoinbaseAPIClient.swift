@@ -26,7 +26,8 @@ public final class CoinbaseAPIClient
     
     // Private
     private let clientID: String
-    private let clientSecret: String
+    private let exchangeCodeURL: URL
+    private let refreshTokenURL: URL
     private let authStore: CoinbaseAPIClientAuthStore
     private let session: URLSession
     
@@ -52,12 +53,13 @@ public final class CoinbaseAPIClient
     
     // MARK: Initialization
     
-    public required init(clientID: String, clientSecret: String, authStore: CoinbaseAPIClientAuthStore, session: URLSession = URLSession(configuration: .default))
+    public required init(clientID: String, exchangeCodeURL: URL, refreshTokenURL: URL, authStore: CoinbaseAPIClientAuthStore, session: URLSession = URLSession(configuration: .default))
     {
         self.session = session
+        self.exchangeCodeURL = exchangeCodeURL
+        self.refreshTokenURL = refreshTokenURL
         self.clientID = clientID
         self.authStore = authStore
-        self.clientSecret = clientSecret
     }
     
     // MARK: Request
@@ -169,48 +171,48 @@ public extension CoinbaseAPIClient
         return urlComponents.url!
     }
     
-    public func authenticate(code: String, redirectURL: URL, completionHandler: @escaping (_ success: Bool, _ errors: [Error]?) -> Void)
+    public func authenticate(code: String, completionHandler: @escaping (_ success: Bool, _ errors: [Error]?) -> Void)
     {
-        let baseURL = self.baseURL.appendingPathComponent("oauth/token")
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)!
-        
-        let grantTypeItem = URLQueryItem(name: "grant_type", value: "authorization_code")
-        let codeItem = URLQueryItem(name: "code", value: code)
-        let clientIDItem = URLQueryItem(name: "client_id", value: self.clientID)
-        let clientSecretItem = URLQueryItem(name: "client_secret", value: self.clientSecret)
-        let redirectItem = URLQueryItem(name: "redirect_uri", value: redirectURL.absoluteString)
-        urlComponents.queryItems = [grantTypeItem, codeItem, clientIDItem, clientSecretItem, redirectItem]
-        
-        // Perform request
-        let url = urlComponents.url!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = self.defaultHeaders
-        
-        self.isRefreshingToken = true
-        
-        self.perform(request: request) { [weak self] (json, data, response, error) in
-            self?.isRefreshingToken = false
+        do
+        {
+            // Body
+            let params = [
+                "code" : code
+            ]
             
-            guard let unwrappedData = data,
-                  let weakSelf = self else
-            {
-                completionHandler(false, nil)
-                return
-            }
+            // Perform request
+            var request = URLRequest(url: self.exchangeCodeURL)
+            request.httpMethod = "POST"
+            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
             
-            do
-            {
-                let decoder = JSONDecoder()
-                weakSelf.authStore.auth = try decoder.decode(Auth.self, from: unwrappedData)
-                completionHandler(true, nil)
+            self.isRefreshingToken = true
+            
+            self.perform(request: request) { [weak self] (json, data, response, error) in
+                self?.isRefreshingToken = false
+                
+                guard let unwrappedData = data,
+                      let self = self else
+                {
+                    completionHandler(false, nil)
+                    return
+                }
+                
+                do
+                {
+                    let decoder = JSONDecoder()
+                    self.authStore.auth = try decoder.decode(Auth.self, from: unwrappedData)
+                    completionHandler(true, nil)
+                }
+                catch
+                {
+                    let errors = self.buildErrors(data: data)
+                    completionHandler(false, errors)
+                }
             }
-            catch
-            {
-                let errors = self?.buildErrors(data: data)
-                completionHandler(false, errors)
-            }
+        }
+        catch
+        {
+            completionHandler(false, [error])
         }
     }
     
@@ -221,55 +223,56 @@ public extension CoinbaseAPIClient
             return
         }
         
-        self.isRefreshingToken = true
-        
-        // Build request
-        let baseURL = self.baseURL.appendingPathComponent("oauth/token")
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)!
-        
-        let grantTypeItem = URLQueryItem(name: "grant_type", value: "refresh_token")
-        let refreshTokenItem = URLQueryItem(name: "refresh_token", value: auth.refreshToken)
-        let clientIDItem = URLQueryItem(name: "client_id", value: self.clientID)
-        let clientSecretItem = URLQueryItem(name: "client_secret", value: self.clientSecret)
-        urlComponents.queryItems = [grantTypeItem, refreshTokenItem, clientIDItem, clientSecretItem]
-        
-        // Perform request
-        let url = urlComponents.url!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = self.defaultHeaders
-        
-        self.perform(request: request) { [weak self] (json, data, response, error) in
-            guard let unwrappedData = data,
-                  let weakSelf = self else
-            {
-                completionHandler(false, nil)
-                return
-            }
+        do
+        {
+            self.isRefreshingToken = true
             
-            do
-            {
-                let decoder = JSONDecoder()
-                weakSelf.authStore.auth = try decoder.decode(Auth.self, from: unwrappedData)
-                
-                // Run through queued requests
-                weakSelf.isRefreshingToken = false
-                
-                for queuedRequest in weakSelf.queuedRequests
+            // Body
+            let params = [
+                "refresh_token" : auth.refreshToken
+            ]
+            
+            // Perform request
+            var request = URLRequest(url: self.refreshTokenURL)
+            request.httpMethod = "POST"
+            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+            
+            self.perform(request: request) { [weak self] (json, data, response, error) in
+                guard let unwrappedData = data,
+                      let self = self else
                 {
-                    queuedRequest()
+                    completionHandler(false, nil)
+                    return
                 }
                 
-                weakSelf.queuedRequests.removeAll()
-                
-                completionHandler(true, nil)
+                do
+                {
+                    let decoder = JSONDecoder()
+                    self.authStore.auth = try decoder.decode(Auth.self, from: unwrappedData)
+                    
+                    // Run through queued requests
+                    self.isRefreshingToken = false
+                    
+                    for queuedRequest in self.queuedRequests
+                    {
+                        queuedRequest()
+                    }
+                    
+                    self.queuedRequests.removeAll()
+                    
+                    completionHandler(true, nil)
+                }
+                catch
+                {
+                    let error = self.buildAuthError(data: data)
+                    completionHandler(false, error)
+                }
             }
-            catch
-            {
-                let error = self?.buildAuthError(data: data)
-                completionHandler(false, error)
-            }
+        }
+        catch
+        {
+            self.isRefreshingToken = false
+            completionHandler(false, error)
         }
     }
     

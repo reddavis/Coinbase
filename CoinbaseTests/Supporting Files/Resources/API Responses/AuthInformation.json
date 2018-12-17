@@ -1,0 +1,21 @@
+{
+    "method": "oauth",
+    "oauth_meta": {
+        "send_limit_amount": "1.00",
+        "send_limit_currency": "USD",
+        "send_limit_period": "day"
+    },
+    "scopes": [
+        "wallet:accounts:read",
+        "wallet:addresses:read",
+        "wallet:addresses:create",
+        "wallet:transactions:read",
+        "wallet:user:read",
+        "wallet:user:update",
+        "wallet:user:email",
+        "wallet:transactions:send",
+        "wallet:payment-methods:read",
+        "wallet:buys:create",
+        "wallet:sells:create"
+    ]
+}

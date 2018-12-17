@@ -505,6 +505,40 @@ public extension CoinbaseAPIClient
             }
         }
     }
+    
+    public func fetchAuthInformation(_ completionHandler: @escaping (_ authInformation: AuthInformation?, _ errors: [Error]?) -> Void)
+    {
+        if self.isRefreshingToken
+        {
+            self.queueRequest(self.fetchAuthInformation(completionHandler))
+            return
+        }
+        
+        let baseURL = self.baseURL.appendingPathComponent("/v2/user/auth")
+        
+        var request = URLRequest(url: baseURL)
+        request.allHTTPHeaderFields = self.defaultHeaders
+        
+        self.perform(request: request) { [weak self] (json, data, response, error) in
+            guard let unwrappedData = data else
+            {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do
+            {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(SingularResponse<AuthInformation>.self, from: unwrappedData)
+                completionHandler(response.object, nil)
+            }
+            catch
+            {
+                let errors = self?.buildErrors(data: data)
+                completionHandler(nil, errors)
+            }
+        }
+    }
 }
 
 // MARK: Addresses

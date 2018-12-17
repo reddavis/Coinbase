@@ -1,0 +1,5 @@
+{
+    "send_limit_amount": "1.00",
+    "send_limit_currency": "USD",
+    "send_limit_period": "day"
+}

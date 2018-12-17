@@ -11,7 +11,7 @@ import Foundation
 
 public extension CoinbaseAPIClient
 {
-    public enum Scope
+    public enum Scope: Equatable
     {
         case readAccounts
         case updateAccounts
@@ -35,7 +35,7 @@ public extension CoinbaseAPIClient
         case readSells
         case createSells
         case readTransactions
-        case createTransactions(sendLimit: Double, currencyCode: String, period: SendLimitPeriod)
+        case createTransactions(sendLimit: Double?, currencyCode: String?, period: SendLimitPeriod?)
         case requestTransactions
         case transferFunds
         case readUser
@@ -43,6 +43,22 @@ public extension CoinbaseAPIClient
         case readUserEmailAddress
         case readWithdrawals
         case createWithdrawals
+        
+        // MARK: Initialization
+        
+        internal init?(value: String)
+        {
+            let stringValues = CoinbaseAPIClient.Scope.allCases.map { (scope) -> String in
+                return scope.value()
+            }
+            
+            guard let index = stringValues.index(of: value) else
+            {
+                return nil
+            }
+            
+            self = CoinbaseAPIClient.Scope.allCases[index]
+        }
         
         // MARK: Key
         
@@ -120,9 +136,16 @@ public extension CoinbaseAPIClient
             switch self
             {
             case .createTransactions(let sendLimit, let currencyCode, let period):
-                let sendLimitItem = URLQueryItem(name: "meta[send_limit_amount]", value: String(sendLimit))
-                let currencyItem = URLQueryItem(name: "meta[send_limit_currency]", value: currencyCode)
-                let periodItem = URLQueryItem(name: "meta[send_limit_period]", value: period.rawValue)
+                guard let unwrappedSendLimit = sendLimit,
+                      let unwrappedCurrencyCode = currencyCode,
+                      let unwrappedPeriod = period else
+                {
+                    return []
+                }
+                
+                let sendLimitItem = URLQueryItem(name: "meta[send_limit_amount]", value: String(unwrappedSendLimit))
+                let currencyItem = URLQueryItem(name: "meta[send_limit_currency]", value: unwrappedCurrencyCode)
+                let periodItem = URLQueryItem(name: "meta[send_limit_period]", value: unwrappedPeriod.rawValue)
                 
                 return [sendLimitItem, currencyItem, periodItem]
             default:
@@ -132,10 +155,70 @@ public extension CoinbaseAPIClient
     }
 }
 
+// MARK: CaseIterable
+
+extension CoinbaseAPIClient.Scope: CaseIterable
+{
+    public static var allCases: [CoinbaseAPIClient.Scope] {
+        return [
+            .readAccounts,
+            .updateAccounts,
+            .createAccounts,
+            .deleteAccounts,
+            .readAddresses,
+            .createAddresses,
+            .readBuys,
+            .createBuys,
+            .readCheckouts,
+            .createCheckouts,
+            .readDeposits,
+            .createDeposits,
+            .readNotifications,
+            .readOrders,
+            .createOrders,
+            .refundOrders,
+            .readPaymentMethods,
+            .deletePaymentMethods,
+            .readPaymentMethodLimits,
+            .readSells,
+            .createSells,
+            .readTransactions,
+            .createTransactions(sendLimit: nil, currencyCode: nil, period: nil),
+            .requestTransactions,
+            .transferFunds,
+            .readUser,
+            .updateUser,
+            .readUserEmailAddress,
+            .readWithdrawals,
+            .createWithdrawals
+        ]
+    }
+}
+
+// MARK: Decodable
+
+extension CoinbaseAPIClient.Scope: Decodable
+{
+    public init(from decoder: Decoder) throws
+    {
+        let container = try decoder.singleValueContainer()
+        let value = try container.decode(String.self)
+        
+        guard let scope = CoinbaseAPIClient.Scope(value: value) else
+        {
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid scope \(value)")
+        }
+        
+        self = scope
+    }
+}
+
+
+// MARK: Send limit period
 
 public extension CoinbaseAPIClient.Scope
 {
-    public enum SendLimitPeriod: String
+    public enum SendLimitPeriod: String, Decodable
     {
         case day, month, year
     }

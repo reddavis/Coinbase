@@ -18,7 +18,7 @@ public extension CoinbaseAPIClient
         public let refreshToken: String
         public let expiresAt: Date
         public let createdAt: Date
-        public let scopes: [String]
+        public let scopes: [Scope]
         
         // MARK: Initialization
         
@@ -35,8 +35,8 @@ public extension CoinbaseAPIClient
             self.expiresAt = Date(timeInterval: expiresInSeconds, since: self.createdAt)
             
             let scopeValue = try container.decode(String.self, forKey: .scopes)
-            self.scopes = scopeValue.split(separator: " ").map({ (substring) -> String in
-                return String(substring)
+            self.scopes = scopeValue.split(separator: " ").compactMap({ (substring) -> Scope? in
+                return Scope(value: String(substring))
             })
         }
     }
@@ -56,7 +56,9 @@ extension CoinbaseAPIClient.Auth
         let expiresInSeconds = self.expiresAt.timeIntervalSince(self.createdAt)
         try container.encode(expiresInSeconds, forKey: .expiresAt)
         
-        let scopes = self.scopes.joined(separator: " ")
+        let scopes = self.scopes.map({ (scope) -> String in
+            return scope.value()
+        }).joined(separator: " ")
         try container.encode(scopes, forKey: .scopes)
     }
 }

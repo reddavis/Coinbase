@@ -88,6 +88,15 @@
 		A450E07B2119EBA300876815 /* PaymentMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E0792119EBA300876815 /* PaymentMethodType.swift */; };
 		A450E07D2119F93D00876815 /* CoinbaseFetchPaymentMethods.json in Resources */ = {isa = PBXBuildFile; fileRef = A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */; };
 		A450E07F2119F9D600876815 /* PaymentMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450E07E2119F9D600876815 /* PaymentMethodTests.swift */; };
+		A475E1E121C7BADA000ECB0E /* AuthInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A475E1E021C7BADA000ECB0E /* AuthInformation.swift */; };
+		A475E1E221C7BADA000ECB0E /* AuthInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A475E1E021C7BADA000ECB0E /* AuthInformation.swift */; };
+		A475E1E421C7C679000ECB0E /* ScopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A475E1E321C7C679000ECB0E /* ScopeTests.swift */; };
+		A475E1E621C7D9E9000ECB0E /* AuthInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A475E1E521C7D9E9000ECB0E /* AuthInformationTests.swift */; };
+		A475E1E821C7DC96000ECB0E /* AuthInformation.json in Resources */ = {isa = PBXBuildFile; fileRef = A475E1E721C7DC96000ECB0E /* AuthInformation.json */; };
+		A475E1EA21C7F3CF000ECB0E /* AuthMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A475E1E921C7F3CF000ECB0E /* AuthMetadata.swift */; };
+		A475E1EB21C7F3CF000ECB0E /* AuthMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A475E1E921C7F3CF000ECB0E /* AuthMetadata.swift */; };
+		A475E1ED21C7FCCE000ECB0E /* AuthMetadataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A475E1EC21C7FCCE000ECB0E /* AuthMetadataTests.swift */; };
+		A475E1EF21C7FD08000ECB0E /* AuthMetadata.json in Resources */ = {isa = PBXBuildFile; fileRef = A475E1EE21C7FD08000ECB0E /* AuthMetadata.json */; };
 		A479ED0F211C86A700134DA8 /* BuySellOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479ED0E211C86A700134DA8 /* BuySellOrder.swift */; };
 		A479ED10211C86A700134DA8 /* BuySellOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479ED0E211C86A700134DA8 /* BuySellOrder.swift */; };
 		A479ED12211C913D00134DA8 /* Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479ED11211C913D00134DA8 /* Buy.swift */; };
@@ -182,6 +191,13 @@
 		A450E0792119EBA300876815 /* PaymentMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodType.swift; sourceTree = "<group>"; };
 		A450E07C2119F93D00876815 /* CoinbaseFetchPaymentMethods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CoinbaseFetchPaymentMethods.json; sourceTree = "<group>"; };
 		A450E07E2119F9D600876815 /* PaymentMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodTests.swift; sourceTree = "<group>"; };
+		A475E1E021C7BADA000ECB0E /* AuthInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInformation.swift; sourceTree = "<group>"; };
+		A475E1E321C7C679000ECB0E /* ScopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeTests.swift; sourceTree = "<group>"; };
+		A475E1E521C7D9E9000ECB0E /* AuthInformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInformationTests.swift; sourceTree = "<group>"; };
+		A475E1E721C7DC96000ECB0E /* AuthInformation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AuthInformation.json; sourceTree = "<group>"; };
+		A475E1E921C7F3CF000ECB0E /* AuthMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMetadata.swift; sourceTree = "<group>"; };
+		A475E1EC21C7FCCE000ECB0E /* AuthMetadataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMetadataTests.swift; sourceTree = "<group>"; };
+		A475E1EE21C7FD08000ECB0E /* AuthMetadata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AuthMetadata.json; sourceTree = "<group>"; };
 		A479ED0E211C86A700134DA8 /* BuySellOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySellOrder.swift; sourceTree = "<group>"; };
 		A479ED11211C913D00134DA8 /* Buy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buy.swift; sourceTree = "<group>"; };
 		A487D604211DC91E00228045 /* Sell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sell.swift; sourceTree = "<group>"; };
@@ -323,6 +339,9 @@
 				A4F1C2DE2121D34700383FD4 /* SellTests.swift */,
 				A4F1C2E72121DAC500383FD4 /* ResourceTests.swift */,
 				A4AABDFE21524B570036EC9B /* PaginationTests.swift */,
+				A475E1E321C7C679000ECB0E /* ScopeTests.swift */,
+				A475E1E521C7D9E9000ECB0E /* AuthInformationTests.swift */,
+				A475E1EC21C7FCCE000ECB0E /* AuthMetadataTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -362,6 +381,8 @@
 				A4F1C2E42121D8DB00383FD4 /* Resource.swift */,
 				A4AA5405214FE879004F6EEE /* Pagination.swift */,
 				A4AA5408214FEACA004F6EEE /* PaginationOrder.swift */,
+				A475E1E021C7BADA000ECB0E /* AuthInformation.swift */,
+				A475E1E921C7F3CF000ECB0E /* AuthMetadata.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,6 +409,8 @@
 				A4F1C2E02121D51400383FD4 /* SellNonCommit.json */,
 				A4F1C2E22121D5D000383FD4 /* Sell.json */,
 				A4F1C2E92121DAFF00383FD4 /* ResourceBuy.json */,
+				A475E1E721C7DC96000ECB0E /* AuthInformation.json */,
+				A475E1EE21C7FD08000ECB0E /* AuthMetadata.json */,
 			);
 			path = "API Responses";
 			sourceTree = "<group>";
@@ -549,6 +572,8 @@
 				A418E5D820D6B025005C30D9 /* CoinbaseExchangeRate.json in Resources */,
 				A450DFF92118982A00876815 /* CoinbaseAuthError.json in Resources */,
 				A418E5D420D6B025005C30D9 /* CoinbaseError.json in Resources */,
+				A475E1EF21C7FD08000ECB0E /* AuthMetadata.json in Resources */,
+				A475E1E821C7DC96000ECB0E /* AuthInformation.json in Resources */,
 				A418E5D520D6B025005C30D9 /* CoinbaseFetchTransactions.json in Resources */,
 				A4078486211CCD1D001A1A27 /* BuyVerificationRequired.json in Resources */,
 				A418E5D320D6B025005C30D9 /* CoinbaseTransaction.json in Resources */,
@@ -588,6 +613,7 @@
 				A418E5B820D6A94C005C30D9 /* TransactionStatus.swift in Sources */,
 				A418E5AE20D6A94C005C30D9 /* Address.swift in Sources */,
 				A418E5A620D6A94C005C30D9 /* Transaction.swift in Sources */,
+				A475E1EA21C7F3CF000ECB0E /* AuthMetadata.swift in Sources */,
 				A418E5AC20D6A94C005C30D9 /* ErrorResponse.swift in Sources */,
 				A4078480211CBA62001A1A27 /* BuyStatus.swift in Sources */,
 				A450E07A2119EBA300876815 /* PaymentMethodType.swift in Sources */,
@@ -601,6 +627,7 @@
 				A418E5B720D6A94C005C30D9 /* Network.swift in Sources */,
 				A418E5A520D6A94C005C30D9 /* CurrencyType.swift in Sources */,
 				A450DFF4211894ED00876815 /* APIAuthError.swift in Sources */,
+				A475E1E121C7BADA000ECB0E /* AuthInformation.swift in Sources */,
 				A4D9658A20DA85EF009DC45C /* SendMoney.swift in Sources */,
 				A418E5AA20D6A94C005C30D9 /* Auth.swift in Sources */,
 				A450E0772119E9BE00876815 /* PaymentMethod.swift in Sources */,
@@ -613,14 +640,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A475E1ED21C7FCCE000ECB0E /* AuthMetadataTests.swift in Sources */,
 				A407847A211CB6A4001A1A27 /* BuyTests.swift in Sources */,
 				A4F1C2E82121DAC500383FD4 /* ResourceTests.swift in Sources */,
+				A475E1E621C7D9E9000ECB0E /* AuthInformationTests.swift in Sources */,
 				A450E07F2119F9D600876815 /* PaymentMethodTests.swift in Sources */,
 				A418E5DE20D6B22A005C30D9 /* MockURLSession.swift in Sources */,
 				A418E5C220D6AFAA005C30D9 /* UserTests.swift in Sources */,
 				A418E5C120D6AFAA005C30D9 /* TransactionTests.swift in Sources */,
 				A4F1C2DF2121D34700383FD4 /* SellTests.swift in Sources */,
 				A418E5C320D6AFAA005C30D9 /* AddressTests.swift in Sources */,
+				A475E1E421C7C679000ECB0E /* ScopeTests.swift in Sources */,
 				A418E5DB20D6B1F7005C30D9 /* XCTest+Helpers.swift in Sources */,
 				A418E5C520D6AFAA005C30D9 /* AccountTests.swift in Sources */,
 				A418E5C420D6AFAA005C30D9 /* ErrorTests.swift in Sources */,
@@ -650,6 +680,7 @@
 				A418E5F120D6BBC1005C30D9 /* Transaction.swift in Sources */,
 				A418E5F020D6BBC1005C30D9 /* CurrencyType.swift in Sources */,
 				A418E5FA20D6BBC1005C30D9 /* Amount.swift in Sources */,
+				A475E1EB21C7F3CF000ECB0E /* AuthMetadata.swift in Sources */,
 				A418E5F220D6BBC1005C30D9 /* User.swift in Sources */,
 				A4078481211CBA62001A1A27 /* BuyStatus.swift in Sources */,
 				A450E07B2119EBA300876815 /* PaymentMethodType.swift in Sources */,
@@ -663,6 +694,7 @@
 				A418E60320D6BBC1005C30D9 /* TransactionStatus.swift in Sources */,
 				A450DFF5211894ED00876815 /* APIAuthError.swift in Sources */,
 				A4D9658B20DA85EF009DC45C /* SendMoney.swift in Sources */,
+				A475E1E221C7BADA000ECB0E /* AuthInformation.swift in Sources */,
 				A418E5FD20D6BBC1005C30D9 /* Currency.swift in Sources */,
 				A450E0782119E9BE00876815 /* PaymentMethod.swift in Sources */,
 				A418E60120D6BBC1005C30D9 /* UserEdits.swift in Sources */,

@@ -37,7 +37,6 @@ internal final class AuthInformationTests: XCTestCase
         }
         catch
         {
-            print(error)
             XCTFail(error.localizedDescription)
         }
     }
